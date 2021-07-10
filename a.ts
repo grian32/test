@@ -6,7 +6,7 @@
  * insert content:
  * {@link www.google.com  ] Hello [}
  * test xss:
- * {@link www.google.com ] <svg onload="alert(1)"></svg> [}
+ * {@link www.google.com ] <svg onload="console.log(1)"></svg> [}
  * @param y number to be added to 3
  * @returns the added numbers 
  */
