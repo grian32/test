@@ -15,6 +15,12 @@
  *
  * Check out {@link https://www.google.com} and {@link https://www.duckduckgo.com}
  *
+ * Check out {@link https://www.google.com|google} and {@link https://www.duckduckgo.com|ddg}
+ *
+ * Check out [google]{@link https://www.google.com} and [ddg]{@link https://www.duckduckgo.com}
+ * 
+ * Check out {@link https://www.google.com google} and {@link https://www.duckduckgo.com ddg}
+ *
  * @param y number to be added to 3
  * @returns the added numbers 
  */
