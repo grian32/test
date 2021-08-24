@@ -256,7 +256,6 @@ export class Canvas extends EventEmitter<WindowEvent> {
           });
           await conn.write(canvas);
           // SDL event_pump
-          event_loop:
           while (true) {
             const canvasReqBuf = await readStatus(conn);
             switch (canvasReqBuf) {
@@ -266,7 +265,6 @@ export class Canvas extends EventEmitter<WindowEvent> {
                 await conn.write(tasks);
                 if (this.#closed) {
                   conn.close();
-                  break event_loop;
                 }
                 this.#tasks = [];
                 break;
@@ -282,20 +280,6 @@ export class Canvas extends EventEmitter<WindowEvent> {
                 });
 
                 break;
-              // TODO(@littledivy): Personally would love to have this <3
-              // case 5:
-              //   // AUDIO_CALLBACK
-              //   const eventLengthBuffer = new Uint8Array(4);
-              //   await conn.read(eventLengthBuffer);
-              //   const view = new DataView(eventLengthBuffer.buffer, 0);
-              //   const eventLength = view.getUint32(0, true);
-              //   const buf = new Float32Array(eventLength);
-
-              //   this.#audioCallback(buf);
-              //   await conn.write(new Uint8Array([0, 0]))
-              //   await conn.write(encode((Array.from(buf))));
-
-              //   break;
               default:
                 break;
             }
