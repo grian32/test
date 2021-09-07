@@ -5,12 +5,4 @@ type WindowEvent = {
   draw: [];
 };
 
-export function init(
-  cb: (conn: Deno.Conn) => Promise<void>,
-  // TODO(@littledivy): Make this toggleable with a build script?
-  dev: boolean = false,
-) {
-
-}
-
 export class Canvas extends EventEmitter<WindowEvent> {}
